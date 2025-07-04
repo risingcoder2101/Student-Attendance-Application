@@ -101,7 +101,7 @@ attendance project/
   - You can add features like notifications, reporting, or backup as needed.
 
 ---
-
+# My Linkedin profile - https://www.linkedin.com/in/jaskaran21012004/
 ## License
 
 This project is for educational/demo purposes.  
