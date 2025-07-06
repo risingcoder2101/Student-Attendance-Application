@@ -1,108 +1,41 @@
-# Attendance Management System
+# Attendance Tracker
 
-A simple Java Swing application for managing student, faculty, subject, and attendance records with MySQL database integration.
-
----
+A simple Java Swing application for tracking attendance for a single student across multiple subjects, using a MySQL database.
 
 ## Features
+- Add, update, and remove subjects
+- Set attendance limit for each subject and overall
+- Mark attendance as PRESENT or ABSENT for each subject
+- Remove the last attendance record for a subject
+- View total and attended lectures per subject
+- See overall attendance percentage
+- Get advice on how many lectures to attend or can skip based on the overall limit
+- Modern, large-font, user-friendly interface
 
-- **User Authentication:** Login for Admin, Faculty, and Student roles.
-- **Admin Dashboard:**
-  - Add, update, and delete students and faculty (with automatic user account creation).
-  - Add, update, and delete subjects.
-- **Faculty Dashboard:**
-  - Mark and view attendance for assigned subjects.
-- **Student Dashboard:**
-  - View personal attendance records.
-- **Relational Database:** MySQL with foreign key constraints for data integrity.
-
----
-
-## Database Setup
-
-1. **Install MySQL** and ensure it is running.
-2. **Create the database and tables:**
-   - Run the provided `attendance_db.sql` script in your MySQL client:
-     ```sh
-     mysql -u root -p < attendance_db.sql
-     ```
-   - This will create the database, tables, and insert sample data (admin, faculty, students, subjects, attendance).
-
----
-
-## Application Setup
-
-1. **Clone or download this repository.**
-2. **Install Java (JDK 8 or higher).**
-3. **Add MySQL Connector/J JAR**  
-   - Ensure `mysql-connector-j-9.2.0.jar` is in your project directory.
-4. **Configure Database Credentials:**
-   - Edit `src/DatabaseConnection.java` and set your MySQL username and password:
-     ```java
-     private static final String USER = "root";
-     private static final String PASSWORD = "your_mysql_password";
-     ```
-5. **Compile the project:**
+## Setup
+1. **Install MySQL** and create the database using the provided `database.sql` file.
+2. **Edit `DatabaseManager.java`** if needed to set your MySQL username and password.
+3. **Compile the project:**
    ```sh
-   javac -d bin -cp mysql-connector-j-9.2.0.jar src/*.java
+   javac -cp ".;mysql-connector-j-9.2.0.jar" -d bin src/*.java
    ```
-6. **Run the application:**
+4. **Run the project:**
    ```sh
-   java -cp "bin;mysql-connector-j-9.2.0.jar" AttendanceManagementSystem
+   java -cp "bin;mysql-connector-j-9.2.0.jar" Main
    ```
 
----
+## Usage
+- Add a subject and set its attendance limit.
+- Select a subject to update, remove, or mark attendance.
+- Use the "Mark Present" or "Mark Absent" buttons to record attendance for today.
+- Use "Remove Last Lecture" to undo the most recent attendance entry for a subject.
+- Set the overall attendance limit at the top; advice will show how many lectures to attend or can skip.
+- Remove a subject with the "Remove Subject" button (removes all its attendance records).
 
-## Default Users
-
-- **Admin:**  
-  - Username: `admin`  
-  - Password: `admin123`
-- **Sample Faculty:**  
-  - Username: `faculty1` / `faculty2`  
-  - Password: `faculty123`
-- **Sample Students:**  
-  - Username: `student1` / `student2` / `student3`  
-  - Password: `student123`
-
----
-
-## Project Structure
-
-```
-attendance project/
-├── attendance_db.sql
-├── mysql-connector-j-9.2.0.jar
-├── src/
-│   ├── AttendanceManagementSystem.java
-│   ├── LoginWindow.java
-│   ├── AdminDashboard.java
-│   ├── FacultyDashboard.java
-│   ├── StudentDashboard.java
-│   ├── DatabaseConnection.java
-│   ├── User.java
-│   ├── Student.java
-│   ├── Faculty.java
-│   ├── Subject.java
-│   └── Attendance.java
-└── bin/
-```
+## Requirements
+- Java 8 or higher
+- MySQL
+- MySQL Connector/J JAR file (e.g., `mysql-connector-j-9.2.0.jar`)
 
 ---
-
-## Notes
-
-- **Foreign Key Constraints:**  
-  - Deleting a student will also delete their attendance and user account.
-  - Deleting a faculty will unassign them from subjects and delete their user account.
-- **Security:**  
-  - Passwords are stored as plain text for demo purposes. For production, use password hashing.
-- **Extensibility:**  
-  - You can add features like notifications, reporting, or backup as needed.
-
----
-# My Linkedin profile - https://www.linkedin.com/in/jaskaran21012004/
-## License
-
-This project is for educational/demo purposes.  
-Feel free to use and modify as needed! 
+This project is for educational/demo purposes and is easy to explain in interviews. 
