@@ -1,4 +1,4 @@
-# Attendance Tracker
+# Student Attendance Application
 
 A simple Java Swing application for tracking attendance for a single student across multiple subjects, using a MySQL database.
 
@@ -36,6 +36,3 @@ A simple Java Swing application for tracking attendance for a single student acr
 - Java 8 or higher
 - MySQL
 - MySQL Connector/J JAR file (e.g., `mysql-connector-j-9.2.0.jar`)
-
----
-This project is for educational/demo purposes and is easy to explain in interviews. 
